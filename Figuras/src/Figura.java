@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Figura {
 	// Representa una figura mediante trazos hechos a mano
-
+	//cambios
 	private String nombre;
 	private List<Trazo>  lisTrazos; 
 	/**
