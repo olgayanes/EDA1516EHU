@@ -31,7 +31,6 @@ public class Figura {
 	public Figura(String trazos, String nombre){
 		//TODO
 
-		prueba de actualizacion de proyecto
 	}
 	
 	/**
