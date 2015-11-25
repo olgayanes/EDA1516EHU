@@ -30,7 +30,7 @@ public class Figura {
 	 */
 	public Figura(String trazos, String nombre){
 		//TODO
-
+		//espabila!!!
 	}
 	
 	/**
