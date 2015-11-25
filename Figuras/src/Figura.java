@@ -30,16 +30,17 @@ public class Figura {
 	 */
 	public Figura(String trazos, String nombre){
 		//TODO
-		//espabila!!!
 	}
 	
 	/**
 	 * Devuelve el nombre e la figura
 	 * @return el nombre
+	 * 
+	 * no necesita explicacion...
+	 * 
 	 */
 	public String getNombre(){
-		//TODO
-		return "";
+		return this.nombre;
 	}
 	
 	/**
