@@ -57,7 +57,7 @@ public class Figura {
 	 * @param c, letra que indica un trazo
 	 */
 	public void anadirTrazo(char c){
-		//TODO
+		lisTrazos.add( new Trazo(c));
 	}
 	
 	/**
