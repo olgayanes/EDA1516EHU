@@ -8,6 +8,8 @@ public class Figura {
 	//cambios
 	private String nombre;
 	private List<Trazo>  lisTrazos; 
+	Iterator<Trazo> iter = lisTrazos.iterator();
+	
 	/**
 	 * Crea una figura con los trazos indicados
 	 * @param trazos, una secuencia de trazos
@@ -66,7 +68,14 @@ public class Figura {
 	 * @param alInicio, si True indica al inicio y False, al final
 	 */
 	public void anadirTrazo(char c, boolean alInicio){
-		//TODO
+		/*if (alInicio==true)
+		{
+			Figura.anadirTrazo(c);
+		}
+		else
+		{
+			
+		}*/
 	}
 	
 	/**
@@ -95,7 +104,7 @@ public class Figura {
 	 * @param c, un tipo de trazo
 	 */
 	public void eliminarDesdeUltimoTrazo(char c){
-		//TODO
+		//if ((lisTrazos.equals(trazo)){
 	}
 	
 	/**
