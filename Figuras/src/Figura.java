@@ -197,8 +197,28 @@ public class Figura {
 	 * los dos. Si son iguales cualquiera vale.
 	 * 	  
 	 */
-	public int altura(){
-		return 0;
+	public int altura()
+	{	int altura = 0;
+		int trazosArriba = 0;
+		int trazosAbajo = 0;
+		
+		for (Trazo todos : this.lisTrazos)
+		{
+			if (todos.getOrientacion() == S) 
+			{
+				trazosArriba++;
+			}
+			else if (todos.getOrientacion() == B)
+			{
+				trazosAbajo++;
+			}
+		}
+		
+	if(trazosAbajo < trazosArriba) { altura = trazosArriba; }
+	if(trazosArriba < trazosAbajo){ altura = trazosAbajo; }
+	if(trazosArriba == trazosAbajo ){ altura = trazosAbajo; }
+	// Esti: Esto es feo y se hace con un switch
+		return altura;
 	}
 	
 	/**
@@ -211,7 +231,27 @@ public class Figura {
 	 */
 	public int anchura(){
 		//TODO
-		return 0;
+		int anchura = 0;
+		int trazosDcha = 0;
+		int trazosIzda = 0;
+		
+		for (Trazo todos : this.lisTrazos)
+		{
+			if (todos.getOrientacion() == D) 
+			{
+				trazosDcha++;
+			}
+			else if (todos.getOrientacion() == B)
+			{
+				trazosIzda++;
+			}
+		}
+		
+	if(trazosIzda < trazosDcha) { anchura = trazosDcha; }
+	if(trazosDcha < trazosIzda) { anchura = trazosIzda; }
+	if(trazosDcha == trazosIzda){ anchura = trazosIzda; }
+	// Esti: Esto es feo y se hace con un switch
+		return anchura;
 	}
 	
 	/**
