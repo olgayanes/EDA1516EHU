@@ -7,7 +7,7 @@ public class Figura {
 	// Representa una figura mediante trazos hechos a mano
 	//cambios
 	private String nombre;
-	private List<Trazo>  lisTrazos; 
+	private LinkedList<Trazo>  lisTrazos; 
 	Iterator<Trazo> iter = lisTrazos.iterator();
 	
 	/**
@@ -16,8 +16,7 @@ public class Figura {
 	 */
 	public Figura(String trazos){
 
-		lisTrazos = new LinkedList<Trazo>();
-		
+			
 		for(int i= 0; i<trazos.length(); i++)
 		{
 			lisTrazos.add( new Trazo( trazos.charAt(i)));
@@ -35,9 +34,7 @@ public class Figura {
 	 */
 	public Figura(String trazos, String nombre){
 		
-		String name = this.nombre;
-		lisTrazos = new LinkedList<Trazo>();
-		
+		this.nombre = nombre;
 		for(int i= 0; i<trazos.length(); i++)
 		{
 			lisTrazos.add( new Trazo( trazos.charAt(i)));
@@ -132,13 +129,14 @@ public class Figura {
 	 */
 	public void eliminarDesdeUltimoTrazo(char c){
 		boolean borrar= false;
+		
 		for( Trazo t : this.lisTrazos ){
 			if(t.equals(c)==true){
 				borrar=true;
+			}
 				if(borrar=true){
 					lisTrazos.remove(t);
 				}
-			}
 			
 		}
 	}
@@ -172,6 +170,8 @@ public class Figura {
 	
 	/**
 	 * Aplica una homotecia de factor 2 a la figura
+	 Nota: Mirar si se sobrescribe la figura a la que se aplica la homotecia 
+	 o se guarda con un nuevo nombre y pasa a formar parte de Figuras
 	 */
 	public void homotecia2(){
 		//TODO		
@@ -193,7 +193,9 @@ public class Figura {
 	 * @return altura de la figura
 	 * 
 	 * discutir como se obtiene la altura
-	 * 
+	 * contar cuantos trazos hay hacia arriba y hacia abajo, la altura sera el numero mayor de
+	 * los dos. Si son iguales cualquiera vale.
+	 * 	  
 	 */
 	public int altura(){
 		return 0;
@@ -204,6 +206,7 @@ public class Figura {
 	 * @return anchura de la figura
 	 * 
 	 * discutir como se obtiene la anchura
+	 * lo mismo que altura pero en horizontal
 	 * 
 	 */
 	public int anchura(){
@@ -245,15 +248,19 @@ public class Figura {
 	 */
 	public boolean esHomotetica(Figura f){
 		// TODO 
+		// ver cual es la mas grande
+		// f.homotecia2(); ver if(this igual a lo que haya devuelto)
 		// NOTA: No se puede utilizar la comparacion entre Strings.
 		return false;
 	}
 	
 	/**
-	 * Verifica si la figura actual y la figura 'f' son semejantes. Es semejante si aplicando una secuencia de homotecias del 
+	 * Verifica si la figura actual y la figura 'f' son semejantes. Es semejante si aplicando
+	 *  una secuencia de homotecias del 
 	 * factor 2 y giros a la derecha a una de las figuras se obtiene la otra.
 	 * @param f, una figura
 	 * @return True si es semejante y False, en caso contrario
+	 * NOta: Si son iguales que devuelve????
 	 */
 	public boolean esSemejante(Figura f){
 		// TODO
