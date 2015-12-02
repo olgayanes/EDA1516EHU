@@ -73,22 +73,30 @@ public class FiguraTest {
 
 	@Test
 	public void testLongitud() {
-		fail("Not yet implemented");
+		Figura fig1 = new Figura("BBSS");
+		fig1.longitud();
+		//fail("Not yet implemented");
 	}
 
 	@Test
 	public void testAltura() {
-		fail("Not yet implemented");
+		Figura fig1 = new Figura("BBSS");
+		fig1.altura();
+		//fail("Not yet implemented");
 	}
 
 	@Test
 	public void testAnchura() {
-		fail("Not yet implemented");
+		Figura fig1 = new Figura("BBSS");
+		fig1.anchura();
+		//fail("Not yet implemented");
 	}
 
 	@Test
 	public void testSuperficie() {
-		fail("Not yet implemented");
+		Figura fig1 = new Figura("BBSS");
+		fig1.superficie();
+		//fail("Not yet implemented");
 	}
 
 	@Test

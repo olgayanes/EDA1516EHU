@@ -29,10 +29,23 @@ public class Figura {
 	 * Crea una figura con los trazos indicados y lo nombra con el nombre dado
 	 * @param trazos, una secuencia de trazos 
 	 * @param nombre, un nombre 
+	 * 
+	 * Como el anterior solo que añade un nombre
+	 * 
 	 */
 	public Figura(String trazos, String nombre){
-		//TODO
+		
+		String name = this.nombre;
+		lisTrazos = new LinkedList<Trazo>();
+		
+		for(int i= 0; i<trazos.length(); i++)
+		{
+			lisTrazos.add( new Trazo( trazos.charAt(i)));
+		}
+
 	}
+	
+	
 	
 	/**
 	 * Devuelve el nombre e la figura
@@ -48,10 +61,12 @@ public class Figura {
 	/**
 	 * Devuelve una lista de trazos
 	 * @return lista de trazos
+	 * 
+	 * Evidente no, lo siguiente
+	 * 
 	 */
 	public List<Trazo> getTrazos(){
-		//TODO
-		return null;
+		return this.lisTrazos;
 	}
 	
 	/**
@@ -66,16 +81,19 @@ public class Figura {
 	 * A–ade un trazo al inicio o al final de los trazos de la figura
 	 * @param c, letra que indica un trazo
 	 * @param alInicio, si True indica al inicio y False, al final
+	 * 
+	 * Una condicional y los metodos de linkedLists insertFirst e insertLast
+	 * 
 	 */
 	public void anadirTrazo(char c, boolean alInicio){
-		/*if (alInicio==true)
+		if (alInicio==true)
 		{
-			Figura.anadirTrazo(c);
+			Figura.insertFirst(c);
 		}
 		else
 		{
-			
-		}*/
+			Figura.insertLast(c);
+		}
 	}
 	
 	/**
@@ -94,17 +112,35 @@ public class Figura {
 	 * Porque si no repercute en la anchura y altura.
 	 * @param pos, posicion entre [1..longitud(figura)]
 	 * @param f, una figura
+	 * 
+	 * Buscar un metodo que inserte una lista dentro de otra, si no existe dividir la lista en
+	 * dos y volver a juntarlas con la lista de "f" en medio
+	 * 
 	 */
 	public void insertar(int pos, Figura f){
 		//TODO
+		//lisTrazos.metodoQueSea(f.getTrazos());
 	}
 	
 	/**
 	 * Elimina la secuencia de trazos desde la œltima ocurrencia del trazo de tipo 'c'
 	 * @param c, un tipo de trazo
+	 * 
+	 * recorre la lista y si encuentra c activara una condicional que borrara todo de ahi 
+	 * en adelante
+	 * 
 	 */
 	public void eliminarDesdeUltimoTrazo(char c){
-		//if ((lisTrazos.equals(trazo)){
+		boolean borrar= false;
+		for( Trazo t : this.lisTrazos ){
+			if(t.equals(c)==true){
+				borrar=true;
+				if(borrar=true){
+					lisTrazos.remove(t);
+				}
+			}
+			
+		}
 	}
 	
 	/**
@@ -113,6 +149,9 @@ public class Figura {
 	 * deber’a de seguir correctamente la secuencia con el siguinte trazo a 'c'. Porque si no repercute en la anchura y altura.
 	 * @param c, un tipo de trazo
 	 * @param trazos
+	 * 
+	 * Aparentemente es parecido al de insertar...
+	 * 
 	 */
 	public void sustituir(char c, String trazos){
 		//TODO
@@ -120,9 +159,15 @@ public class Figura {
 	
 	/**
 	 * Gira la figura 90¼ a la derecha
+	 * 
+	 * recorre los trazos cambiandolos por su equivalente girado 90º usando el metodo que 
+	 * hay en la clase Trazos
+	 * 
 	 */
 	public void girarDerecha(){
-		//TODO		
+		for( Trazo t : this.lisTrazos ){
+			t = t.girarDerecha();
+		}
 	}
 	
 	/**
@@ -135,15 +180,20 @@ public class Figura {
 	/**
 	 * Devuelve la longitud de la figura, es decir, el numero de trazos que componen la figura
 	 * @return longitud de la figura
+	 * 
+	 * Simple
+	 * 
 	 */
 	public int longitud(){
-		//TODO
-		return 0;
+		return this.lisTrazos.length();
 	}
 	
 	/**
 	 * Devuelve la altura de la figura
 	 * @return altura de la figura
+	 * 
+	 * discutir como se obtiene la altura
+	 * 
 	 */
 	public int altura(){
 		return 0;
@@ -152,6 +202,9 @@ public class Figura {
 	/**
 	 * Devuelve la anchura de la figura
 	 * @return anchura de la figura
+	 * 
+	 * discutir como se obtiene la anchura
+	 * 
 	 */
 	public int anchura(){
 		//TODO
@@ -161,15 +214,21 @@ public class Figura {
 	/**
 	 * Calcula y devuelve la superficie de la figura
 	 * @return superficie de la figura
+	 * 
+	 * Muy simple
+	 * 
 	 */
 	public int superficie(){
-		return 0;
+		return this.altura()*this.anchura();
 	}
 
 	/**
 	 * Verifica si la figura actual y la fgura dada por parametro 'obj' son iguales
 	 * @paramm obj, una figura
 	 * @return True si son iguales y False, en caso contrario
+	 * 
+	 * Venia hecho
+	 * 
 	 */
 	@Override
 	public boolean equals(Object obj) {
