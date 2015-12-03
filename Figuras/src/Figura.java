@@ -109,23 +109,26 @@ public class Figura {
 	 * Porque si no repercute en la anchura y altura.
 	 * @param pos, posicion entre [1..longitud(figura)]
 	 * @param f, una figura
-	 * 
-	 * Buscar un metodo que inserte una lista dentro de otra, si no existe dividir la lista en
-	 * dos y volver a juntarlas con la lista de "f" en medio
+	 *  
+	 * divide la lista en dos y vuelve a juntarla con la lista de "f" en medio
+	 * si se os ocurre algo mas elegante implementadlo
 	 * 
 	 */
 	public void insertar(int pos, Figura f){
 		private LinkedList<Trazo>  Apoyo;
-		//este copia a una lista de apoyo a partir de pos
+		//este copia a una lista de apoyo a partir de pos y va borrando los ya copiados
 		for(pos<lisTrazos.length();pos++){
-			Apoyo.add(lisTrazos<pos>);
+			Apoyo.add(lisTrazos.get(pos));
+			lisTrazos.remove(pos);
 		}
 		//este coloca lo nuevo en lisTrazos
 		for(int i=0;i<f.getTrazos().length();i++){
-			lisTrazos<pos>=f.getTrazos();
+			lisTrazos<pos>=f.getTrazos().get(i);
 		}
 		//este copiara lo de apoyo a lisTrazos 
-		for(int j=0;j<)
+		for(int j=0;j<Apoyo.length();j++){
+			lisTrazos.add(Apoyo.get(j));
+		}
 	}
 	
 	/**
