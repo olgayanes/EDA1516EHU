@@ -115,8 +115,17 @@ public class Figura {
 	 * 
 	 */
 	public void insertar(int pos, Figura f){
-		//TODO
-		//lisTrazos.metodoQueSea(f.getTrazos());
+		private LinkedList<Trazo>  Apoyo;
+		//este copia a una lista de apoyo a partir de pos
+		for(pos<lisTrazos.length();pos++){
+			Apoyo.add(lisTrazos<pos>);
+		}
+		//este coloca lo nuevo en lisTrazos
+		for(int i=0;i<f.getTrazos().length();i++){
+			lisTrazos<pos>=f.getTrazos();
+		}
+		//este copiara lo de apoyo a lisTrazos 
+		for(int j=0;j<)
 	}
 	
 	/**
