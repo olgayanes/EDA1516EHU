@@ -197,7 +197,7 @@ public class Figura {
 	 * 
 	 */
 	public int longitud(){
-		return this.lisTrazos.length();
+		return this.lisTrazos.size();
 	}
 	
 	/**
@@ -216,11 +216,11 @@ public class Figura {
 		
 		for (Trazo todos : this.lisTrazos)
 		{
-			if (todos.getOrientacion() == S) 
+			if (todos.getOrientacion() == 'S') 
 			{
 				trazosArriba++;
 			}
-			else if (todos.getOrientacion() == B)
+			else if (todos.getOrientacion() == 'B')
 			{
 				trazosAbajo++;
 			}
@@ -249,11 +249,11 @@ public class Figura {
 		
 		for (Trazo todos : this.lisTrazos)
 		{
-			if (todos.getOrientacion() == D) 
+			if (todos.getOrientacion() == 'D') 
 			{
 				trazosDcha++;
 			}
-			else if (todos.getOrientacion() == B)
+			else if (todos.getOrientacion() == 'B')
 			{
 				trazosIzda++;
 			}
