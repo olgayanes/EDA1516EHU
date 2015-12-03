@@ -175,8 +175,8 @@ public class Figura {
 	 * 
 	 */
 	public void girarDerecha(){
-		for( Trazo t : this.lisTrazos ){
-			t = t.girarDerecha();
+		for( Trazo t : lisTrazos ){
+			t.girarDerecha();
 		}
 	}
 	
