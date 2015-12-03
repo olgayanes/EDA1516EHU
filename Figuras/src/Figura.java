@@ -85,11 +85,11 @@ public class Figura {
 	public void anadirTrazo(char c, boolean alInicio){
 		if (alInicio==true)
 		{
-			Figura.insertFirst(c);
+			this.lisTrazos.addFirst(new Trazo(c));
 		}
 		else
 		{
-			Figura.insertLast(c);
+			this.lisTrazos.addLast(new Trazo(c));
 		}
 	}
 	
@@ -109,25 +109,15 @@ public class Figura {
 	 * Porque si no repercute en la anchura y altura.
 	 * @param pos, posicion entre [1..longitud(figura)]
 	 * @param f, una figura
-	 *  
-	 * divide la lista en dos y vuelve a juntarla con la lista de "f" en medio
-	 * si se os ocurre algo mas elegante implementadlo
+	 * 
+	 * Buscar un metodo que inserte una lista dentro de otra, si no existe dividir la lista en
+	 * dos y volver a juntarlas con la lista de "f" en medio
 	 * 
 	 */
 	public void insertar(int pos, Figura f){
-		private LinkedList<Trazo>  Apoyo;
-		//este copia a una lista de apoyo a partir de pos y va borrando los ya copiados
-		for(pos<lisTrazos.length();pos++){
-			Apoyo.add(lisTrazos.get(pos));
-			lisTrazos.remove(pos);
-		}
-		//este coloca lo nuevo en lisTrazos
-		for(int i=0;i<f.getTrazos().length();i++){
-			lisTrazos<pos>=f.getTrazos().get(i);
-		}
-		//este copiara lo de apoyo a lisTrazos 
-		for(int j=0;j<Apoyo.length();j++){
-			lisTrazos.add(Apoyo.get(j));
+		for(Trazo t: f.lisTrazos){
+			this.lisTrazos.add(pos, t);
+			pos++;
 		}
 	}
 	
