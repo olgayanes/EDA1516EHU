@@ -1,4 +1,3 @@
-
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,7 +7,7 @@ public class Figura {
 	//cambios
 	private String nombre;
 	private LinkedList<Trazo>  lisTrazos; 
-	Iterator<Trazo> iter = lisTrazos.iterator();
+	Iterator<Trazo> iter;
 	
 	/**
 	 * Crea una figura con los trazos indicados
@@ -16,7 +15,7 @@ public class Figura {
 	 */
 	public Figura(String trazos){
 
-			
+		this.lisTrazos=new LinkedList<Trazo>();	
 		for(int i= 0; i<trazos.length(); i++)
 		{
 			lisTrazos.add( new Trazo( trazos.charAt(i)));
@@ -35,6 +34,7 @@ public class Figura {
 	public Figura(String trazos, String nombre){
 		
 		this.nombre = nombre;
+		this.lisTrazos=new LinkedList<Trazo>();
 		for(int i= 0; i<trazos.length(); i++)
 		{
 			lisTrazos.add( new Trazo( trazos.charAt(i)));
@@ -109,15 +109,25 @@ public class Figura {
 	 * Porque si no repercute en la anchura y altura.
 	 * @param pos, posicion entre [1..longitud(figura)]
 	 * @param f, una figura
-	 * 
-	 * Buscar un metodo que inserte una lista dentro de otra, si no existe dividir la lista en
-	 * dos y volver a juntarlas con la lista de "f" en medio
+	 *  
+	 * divide la lista en dos y vuelve a juntarla con la lista de "f" en medio
+	 * si se os ocurre algo mas elegante implementadlo
 	 * 
 	 */
 	public void insertar(int pos, Figura f){
-		for(Trazo t: f.lisTrazos){
-			this.lisTrazos.add(pos, t);
-			pos++;
+		 LinkedList<Trazo> Apoyo = null;
+		//este copia a una lista de apoyo a partir de pos y va borrando los ya copiados
+		for( ; pos< this.lisTrazos.size();pos++){
+			Apoyo.add(lisTrazos.get(pos));
+			lisTrazos.remove(pos);
+		}
+		//este coloca lo nuevo en lisTrazos
+		for(int i=0;i<f.getTrazos().size();i++){
+			lisTrazos.add(f.getTrazos().get(i));
+		}
+		//este copiara lo de apoyo a lisTrazos 
+		for(int j=0;j<Apoyo.size();j++){
+			lisTrazos.add(Apoyo.get(j));
 		}
 	}
 	
@@ -145,16 +155,40 @@ public class Figura {
 	
 	/**
 	 * Sustituye el primer trazo de tipo 'c' con los trazos dados en 'trazos'
-	 * Pre: Loz trazos dados deben de formar una secuencia casi-cerrada-1, es decir, le falta un trazo para que sea cerrada y
-	 * deber’a de seguir correctamente la secuencia con el siguinte trazo a 'c'. Porque si no repercute en la anchura y altura.
+	 * Pre: Loz trazos dados deben de formar una secuencia casi-cerrada-1, es decir, le falta un
+	 *  trazo para que sea cerrada y deber’a de seguir correctamente la secuencia con el 
+	 *  siguinte trazo a 'c'. Porque si no repercute en la anchura y altura.
 	 * @param c, un tipo de trazo
 	 * @param trazos
 	 * 
-	 * Aparentemente es parecido al de insertar...
+	 * Sustituye los trazos pero NO SE ME OCURRE COMO HACER PARA QUE CUMPLA LA PRECONDICION
 	 * 
 	 */
 	public void sustituir(char c, String trazos){
-		//TODO
+		LinkedList<Trazo>  Apoyo= null;
+		int pos=0;
+		//este busca la posicion de c
+		while(pos==0){
+		for(int i=0;i<this.lisTrazos.size();i++){
+			if(this.lisTrazos.get(i)==new Trazo(c)){
+			pos = i;	
+			}
+		}
+		}
+		//este copia a una lista de apoyo a partir de pos y va borrando los ya copiados
+		for(;pos<this.lisTrazos.size();pos++){
+			Apoyo.add(lisTrazos.get(pos));
+			lisTrazos.remove(pos);
+		}
+		//este coloca lo nuevo en lisTrazos
+		for(int i=0;i<trazos.length();i++){
+			lisTrazos.add(new Trazo( trazos.charAt(i)));
+		}
+		//este borra c y copiara lo de apoyo a lisTrazos
+		lisTrazos.removeFirst();
+		for(int j=0;j<Apoyo.size();j++){
+			lisTrazos.add(Apoyo.get(j));
+		}
 	}
 	
 	/**
@@ -165,20 +199,27 @@ public class Figura {
 	 * 
 	 */
 	public void girarDerecha(){
-		for( Trazo t : lisTrazos ){
+		for( Trazo t : this.lisTrazos ){
 			t.girarDerecha();
 		}
 	}
 	
 	/**
 	 * Aplica una homotecia de factor 2 a la figura
-	 Nota: Mirar si se sobrescribe la figura a la que se aplica la homotecia 
-	 o se guarda con un nuevo nombre y pasa a formar parte de Figuras
+	 * Nota: Mirar si se sobrescribe la figura a la que se aplica la homotecia 
+	 * o se guarda con un nuevo nombre y pasa a formar parte de Figuras
+	 * 
+	 * En este metodo se SOBRESCRIBE lisTrazos
 	 */
 	public void homotecia2(){
-		//TODO		
-	}
+		LinkedList<Trazo>  lisTrazos2 = new LinkedList<Trazo>(); 
 	
+		for( Trazo t : this.lisTrazos ){
+			lisTrazos2.add(t);
+			lisTrazos2.add(t);
+		}
+		lisTrazos=lisTrazos2;
+	}
 	/**
 	 * Devuelve la longitud de la figura, es decir, el numero de trazos que componen la figura
 	 * @return longitud de la figura
@@ -232,7 +273,6 @@ public class Figura {
 	 * 
 	 */
 	public int anchura(){
-		//TODO
 		int anchura = 0;
 		int trazosDcha = 0;
 		int trazosIzda = 0;
@@ -243,7 +283,7 @@ public class Figura {
 			{
 				trazosDcha++;
 			}
-			else if (todos.getOrientacion() == 'B')
+			else if (todos.getOrientacion() == 'I')
 			{
 				trazosIzda++;
 			}
@@ -272,27 +312,50 @@ public class Figura {
 	 * @paramm obj, una figura
 	 * @return True si son iguales y False, en caso contrario
 	 * 
-	 * Venia hecho
+	 * Compara las listas de trazos
 	 * 
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		// NOTA: No se puede utilizar la comparacion entre Strings.
-		return super.equals(obj);
+		if(obj instanceof Figura){
+			Figura f = (Figura) obj;
+			if(this.longitud()==f.longitud()){
+				for(int i=0;i<this.getTrazos().size();i++){
+					if(this.lisTrazos.get(i)!=f.lisTrazos.get(i)){
+						return false;
+					}
+				}
+			}
+			return true;
+		}
+		
+		return false;
 	}
 
 	/**
-	 * Verifica si la figura actual y la figura 'f' son homoteticas. Es homotetica si las dos figuras tienen la misma orientaci—n 
-	 * y aplicando una secuencia de homotecias del factor 2 a una de las figuras se obtiene la otra.
+	 * Verifica si la figura actual y la figura 'f' son homoteticas. Es homotetica si las dos 
+	 * figuras tienen la misma orientaci—n 
+	 * y aplicando una secuencia de homotecias del factor 2 a una de las figuras se obtiene la 
+	 * otra.
 	 * @param f, una figura
 	 * @return True si es homotetica y False, en caso contrario
+	 * 
+	 * Usa homotencia2 en la figura mas pequeña y luego las compara con equals
+	 * 
 	 */
 	public boolean esHomotetica(Figura f){
-		// TODO 
-		// ver cual es la mas grande
-		// f.homotecia2(); ver if(this igual a lo que haya devuelto)
-		// NOTA: No se puede utilizar la comparacion entre Strings.
+		if(this.getTrazos().size()>f.getTrazos().size()){
+			f.homotecia2();
+			if(this.equals(f)){
+				return true;
+			}
+		}
+		if(this.getTrazos().size()<f.getTrazos().size()){
+			this.homotecia2();
+			if(this.equals(f)){
+				return true;
+			}
+		}
 		return false;
 	}
 	
@@ -303,31 +366,63 @@ public class Figura {
 	 * @param f, una figura
 	 * @return True si es semejante y False, en caso contrario
 	 * NOta: Si son iguales que devuelve????
+	 * 
+	 * Aplica la homotencia2 a la mas pequeña y las compara 4 veces, una por giro
+	 * 
 	 */
 	public boolean esSemejante(Figura f){
-		// TODO
-		// NOTA: No se puede utilizar la comparacion entre Strings.
+		if(this.getTrazos().size()>f.getTrazos().size()){
+			f.homotecia2();
+			for(int i=3;i>0;i=i-1){
+				if(this.equals(f)){
+					return true;
+				}
+				f.girarDerecha();
+			}
+			}
+		if(this.getTrazos().size()<f.getTrazos().size()){
+			this.homotecia2();
+			for(int i=3;i>0;i=i-1){
+				if(this.equals(f)){
+					return true;
+				}
+				this.girarDerecha();
+			}
+		if(this.getTrazos().size()>f.getTrazos().size()){
+			return true;	
+			}
+			}
 		return false;
 	}
+
 	
 	/**
 	 * Devuelve una copia exacta a la figura actual
+	 * 
+	 * Copia todo
+	 * 
 	 */
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
+		Figura clon = new Figura("",this.getNombre());
+		for(int i=0; i<this.getTrazos().size();i++){
+			clon.getTrazos().add(this.getTrazos().get(i));
+		}
 		return super.clone();
 	}
 
 	/** 
 	 * Devuelve la representacion de una figura de trazos como una cadena de caracteres
+	 * 
+	 * No me fio mucho de este pero tiene sentido
+	 * 
 	 */
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		String cadenaTrazos="";
+		for(int i=0; i<this.getTrazos().size();i++){
+			cadenaTrazos = cadenaTrazos + this.getTrazos().get(i);
+		}
+		return cadenaTrazos;
 	}
-	
-	
-	
 }
