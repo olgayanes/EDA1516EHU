@@ -1,15 +1,17 @@
 
+import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 
 public class GestorFiguras {
-	//TODO Representacion de una coleccion de figuras
+	Hashtable<String,Figura> Figuras;
 	
 	
 	/**
 	 * Crea un gestor de figuras vacia
 	 */
 	public GestorFiguras(){
-		// TODO
+		Figuras = new Hashtable <String,Figura>();
 		
 	}
 	
@@ -18,7 +20,7 @@ public class GestorFiguras {
 	 * @param figura
 	 */
 	public void guardar(Figura figura){
-		// TODO		
+		Figuras.put(figura.getNombre(), figura);
 	}
 	
 	/**
@@ -27,8 +29,7 @@ public class GestorFiguras {
 	 * @return la figura
 	 */
 	public Figura recuperar(String nombre){
-		// TODO
-		return null;
+		return Figuras.get(nombre); 
 	}
 	
 	/**
@@ -36,7 +37,14 @@ public class GestorFiguras {
 	 * @param figura, una figura 
 	 */
 	public void cambiar(Figura figura){
-		//TODO		
+		Iterator<Figura>iterador=Figuras.values().iterator();
+		while(iterador.hasNext()==true){
+			if(iterador.next().getNombre()==figura.getNombre()){
+				iterador.next().getTrazos().clear();
+				iterador.next().getTrazos().addAll(figura.getTrazos());
+			}
+		}
+			
 	}
 	
 	/**
@@ -45,8 +53,12 @@ public class GestorFiguras {
 	 * @return devuelve True si existe y False, en caso contrario
 	 */
 	public boolean existe(String nombre){
-		//TODO
+		if(Figuras.containsKey(nombre)==true){;
+		return true;
+		}
+		else{
 		return false;
+		}
 	}
 	
 	/**
@@ -55,8 +67,13 @@ public class GestorFiguras {
 	 * @return una lista de figuras
 	 */
 	public List<Figura> recuperarLista(String [] nombres){
-		//TODO
-		return null;
+		List <Figura> coincidencias = null;
+		for(int i=0;i<nombres.length;i++){
+				if(Figuras.get(nombres)!=null){
+					coincidencias.add(Figuras.get(nombres));
+				}
+		}
+		return coincidencias;
 	}
 
 	/**
@@ -64,9 +81,17 @@ public class GestorFiguras {
 	 * @param figura, una figura
 	 * @return una lista de figuras
 	 */
-	public List<Figura> recuperarIguales(Figura figura){
-		//TODO
-		return null;
+	public List<Figura> recuperarIguales (Figura figura){
+		List <Figura> coincidencias = null;
+		Iterator<Figura>iterador=Figuras.values().iterator();
+		while(iterador.hasNext()==true){
+			if(iterador.next().equals(figura)==true){
+				coincidencias.add(iterador.next());
+			}
+		}
+			
+		
+		return coincidencias;
 	}
 
 	/**
@@ -75,8 +100,14 @@ public class GestorFiguras {
 	 * @return una lista de figuras
 	 */
 	public List<Figura> recuperarSemejantes(Figura figura){
-		//TODO
-		return null;
+		List <Figura> coincidencias = null;
+		Iterator<Figura>iterador=Figuras.values().iterator();
+		while(iterador.hasNext()==true){
+			if(iterador.next().esSemejante(figura)==true){
+				coincidencias.add(iterador.next());
+			}
+		}
+	return coincidencias;
 	}
 
 }
