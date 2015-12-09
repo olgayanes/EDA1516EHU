@@ -1,13 +1,23 @@
-import static org.junit.Assert.*;
+mport static org.junit.Assert.*;
+
+import java.util.Hashtable;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class GestorFigurasTest {
-
+	GestorFiguras g1;
+	GestorFiguras g2;
+	GestorFiguras g3;
+	Figura f1;
+	Figura f2;
+	Figura f3;
 	@Before
 	public void setUp() throws Exception {
+		g1=new GestorFiguras();
+		g2=new GestorFiguras();
+		g3=new GestorFiguras();
 	}
 
 	@After
@@ -16,42 +26,71 @@ public class GestorFigurasTest {
 
 	@Test
 	public void testGestorFiguras() {
-		fail("Not yet implemented");
+		assertNotNull(new GestorFiguras());
 	}
 
 	@Test
 	public void testGuardar() {
-		fail("Not yet implemented");
+		f1 = new Figura("SSSBBBDDDBBBIII","figura1");
+		g1.guardar(f1);
+		assertTrue(g1.Figuras.containsKey("figura1"));
 	}
 
 	@Test
 	public void testRecuperar() {
-		fail("Not yet implemented");
+		f1 = new Figura("SSSBBBDDDBBBIII","figura1");
+		g1.guardar(f1);
+		assertNotNull(g1.recuperar("figura1")==f1);
 	}
 
 	@Test
 	public void testCambiar() {
-		fail("Not yet implemented");
+	/*f1 = new Figura("SSSBBBDDDBBBIII","figura1");
+	f2 = new Figura("S","figura1");
+	g1.guardar(f1);
+	g1.cambiar(f2);
+		assertTrue(g1.Figuras.containsValue("S"));*/
+		fail("Nada");
+		
 	}
 
 	@Test
 	public void testExiste() {
-		fail("Not yet implemented");
+		f1 = new Figura("SSSBBBDDDBBBIII","figura1");
+		g1.guardar(f1);
+		assertTrue(g1.existe("figura1"));
 	}
 
 	@Test
 	public void testRecuperarLista() {
-		fail("Not yet implemented");
+		/*String [] nombres = new String[1];
+		nombres[1]="figura1";
+		f1 = new Figura("SSSBBBDDDBBBIII","figura1");
+		g1.guardar(f1);
+		assertTrue(g1.recuperarLista(nombres).isEmpty()==false);*/
+		fail("Nada");
 	}
 
 	@Test
 	public void testRecuperarIguales() {
-		fail("Not yet implemented");
+		/*String [] nombres = new String[1];
+		nombres[1]="figura1";
+		f1 = new Figura("SSSBBBDDDBBBIII","figura1");
+		g1.guardar(f1);
+		f2 = new Figura("SSSBBBDDDBBBIII","figura2");
+		assertNotNull(g1.recuperarIguales(f2));*/
+		fail("Nada");
 	}
 
 	@Test
 	public void testRecuperarSemejantes() {
-		fail("Not yet implemented");
+		/*String [] nombres = new String[1];
+		nombres[1]="figura1";
+		f1 = new Figura("SSSSBBBBDDDDBBBBIIII","figura1");
+		g1.guardar(f1);
+		f2 = new Figura("SSBBDDBBII","figura2");
+		assertNotNull(g1.recuperarIguales(f2));*/
+		fail("Nada");
 	}
 
 }
