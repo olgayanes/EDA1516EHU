@@ -141,17 +141,13 @@ public class Figura {
 	 * en adelante
 	 * 
 	 */
-	public void eliminarDesdeUltimoTrazo(char c){
-		boolean borrar= false;
+	public void eliminarDesdeUltimoTrazo(char c){		
+		int pos= lisTrazos.lastIndexOf(new Trazo(c));
 		
-		for( Trazo t : this.lisTrazos ){
-			if(t.equals(c)==true){
-				borrar=true;
-			}
-				if(borrar=true){
-					lisTrazos.remove(t);
-				}
-			
+		if(pos>=0){
+		for(;pos<lisTrazos.size();pos++){
+			lisTrazos.remove(pos);
+		}
 		}
 	}
 	
@@ -167,16 +163,10 @@ public class Figura {
 	 * 
 	 */
 	public void sustituir(char c, String trazos){
-		LinkedList<Trazo>  Apoyo= null;
-		int pos=0;
+		LinkedList<Trazo>  Apoyo= new LinkedList();
+		int pos=lisTrazos.indexOf(new Trazo(c));
 		//este busca la posicion de c
-		while(pos==0){
-		for(int i=0;i<this.lisTrazos.size();i++){
-			if(this.lisTrazos.get(i)==new Trazo(c)){
-			pos = i;	
-			}
-		}
-		}
+		lisTrazos.remove(pos);
 		//este copia a una lista de apoyo a partir de pos y va borrando los ya copiados
 		for(;pos<this.lisTrazos.size();pos++){
 			Apoyo.add(lisTrazos.get(pos));
@@ -319,7 +309,7 @@ public class Figura {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		
+		if (obj instanceof Figura){
 			Figura f = (Figura) obj;
 			if(this.longitud()!=f.longitud()) {return false;}
 			else {
@@ -329,7 +319,9 @@ public class Figura {
 					}
 				}
 			}
-			return true;		
+			return true;	
+		}
+		return false;
 	}
 
 	/**

@@ -91,14 +91,11 @@ public class FiguraTest {
 		f4.eliminarDesdeUltimoTrazo('I');
 		assertTrue(f4.getTrazos().size() == 3);
 		f2.eliminarDesdeUltimoTrazo('I');
-		assertFalse(f2.getTrazos().size() == 3);		
+		assertTrue(f2.getTrazos().size() == 2);		
 	}
 
 	@Test
 	public void testSustituir() {
-		
-		//El test peta. Debe ser por un bucle infinito en el método 
-		//No lo ejecuteis o el eclipse se parará
 		
 		/*f2.sustituir('B', "ID");
 		assertTrue(f2.getTrazos().get(0).getOrientacion() == 'S');
@@ -168,7 +165,7 @@ public class FiguraTest {
 		assertTrue(f1.equals(f1));
 		assertFalse(f1.equals(f2));
 		assertFalse(f2.equals(f3));
-		
+		assertFalse(f4.equals('a'));
 	}
 
 	@Test
