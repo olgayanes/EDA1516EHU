@@ -11,6 +11,8 @@ public class FiguraTest {
 	Figura f5;
 	Figura f6;
 	Figura f7;
+	Figura f8;
+	Figura f9;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -21,16 +23,18 @@ public class FiguraTest {
 		f5 = new Figura("SDBI","figura5");
 		f6 = new Figura("SSDDBBII","figura6");
 		f7 = new Figura("BBBSSSIIISSSDDD","figura7");
+		f8 = new Figura("DDDIIBS");
+		f9 = new Figura("IIIISSDD");
 	}
 	
 	@Test
 	public void testFiguraString() {
-		//assertNotNull(new Figura(null));		
+		assertNotNull(new Figura("SIB"));		
 	}
 
 	@Test
 	public void testFiguraStringString() {
-		//assertNotNull (new Figura(null,null));
+		assertNotNull (new Figura("SBD","nombre"));
 	}
 
 	@Test
@@ -87,7 +91,7 @@ public class FiguraTest {
 		f4.eliminarDesdeUltimoTrazo('I');
 		assertTrue(f4.getTrazos().size() == 3);
 		f2.eliminarDesdeUltimoTrazo('I');
-		assertFalse(f2.getTrazos().size() == 3);
+		assertFalse(f2.getTrazos().size() == 3);		
 	}
 
 	@Test
@@ -100,6 +104,7 @@ public class FiguraTest {
 		assertTrue(f2.getTrazos().get(0).getOrientacion() == 'S');
 		assertTrue(f2.getTrazos().get(1).getOrientacion() == 'I');
 		assertTrue(f2.getTrazos().get(2).getOrientacion() == 'D');*/
+		fail("Nada");
 	}
 
 	@Test
@@ -147,6 +152,8 @@ public class FiguraTest {
 		assertTrue((f2.anchura() == 0));
 		assertTrue((f3.anchura() == 1));
 		assertTrue((f7.anchura() == 3));
+		assertTrue((f8.anchura() == 3));
+		assertTrue((f9.anchura() == 4));
 	}
 
 	@Test
@@ -161,23 +168,26 @@ public class FiguraTest {
 		assertTrue(f1.equals(f1));
 		assertFalse(f1.equals(f2));
 		assertFalse(f2.equals(f3));
+		
 	}
 
 	@Test
 	public void testEsHomotetica() {
-		assertTrue(f1.esHomotetica(f1));
+		/*assertTrue(f1.esHomotetica(f1));
 		assertTrue(f5.esHomotetica(f6));
 		assertTrue(f6.esHomotetica(f5));
 		assertFalse(f1.esHomotetica(f2));
 		assertFalse(f2.esHomotetica(f1));
-		assertFalse(f5.esHomotetica(f3));
+		assertFalse(f5.esHomotetica(f3));*/
+		fail("Nada");
 	}
 
 	@Test
 	public void testEsSemejante() {
-		f5.girarDerecha();
+		/*f5.girarDerecha();
 		assertTrue(f5.esSemejante(f6));
-		assertFalse(f1.esSemejante(f2));
+		assertFalse(f1.esSemejante(f2));*/
+		fail("Nada");
 	}
 
 	@Test

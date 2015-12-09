@@ -115,9 +115,11 @@ public class Figura {
 	 * 
 	 */
 	public void insertar(int pos, Figura f){
-		 LinkedList<Trazo> Apoyo = null;
-		//este copia a una lista de apoyo a partir de pos y va borrando los ya copiados
-		for( ; pos< this.lisTrazos.size();pos++){
+		 LinkedList<Trazo> Apoyo = new LinkedList();
+		 Apoyo.add(lisTrazos.get(pos));
+			lisTrazos.remove(pos);
+		 //este copia a una lista de apoyo a partir de pos y va borrando los ya copiados
+		for(; pos< this.lisTrazos.size();pos++){
 			Apoyo.add(lisTrazos.get(pos));
 			lisTrazos.remove(pos);
 		}
@@ -317,19 +319,17 @@ public class Figura {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Figura){
+		
 			Figura f = (Figura) obj;
-			if(this.longitud()==f.longitud()){
+			if(this.longitud()!=f.longitud()) {return false;}
+			else {
 				for(int i=0;i<this.getTrazos().size();i++){
 					if(this.lisTrazos.get(i)!=f.lisTrazos.get(i)){
 						return false;
 					}
 				}
 			}
-			return true;
-		}
-		
-		return false;
+			return true;		
 	}
 
 	/**
