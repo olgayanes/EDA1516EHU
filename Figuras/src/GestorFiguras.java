@@ -2,6 +2,7 @@
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
+import java.util.LinkedList;
 
 public class GestorFiguras {
 	Hashtable<String,Figura> Figuras;
@@ -60,7 +61,7 @@ public class GestorFiguras {
 	 * @return una lista de figuras
 	 */
 	public List<Figura> recuperarLista(String [] nombres){
-		List <Figura> coincidencias = null;
+		List <Figura> coincidencias = new LinkedList<Figura>();
 		for(int i=0;i<nombres.length;i++){
 				if(Figuras.get(nombres)!=null){
 					coincidencias.add(Figuras.get(nombres));

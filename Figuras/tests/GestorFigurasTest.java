@@ -73,13 +73,10 @@ public class GestorFigurasTest {
 
 	@Test
 	public void testRecuperarIguales() {
-		/*String [] nombres = new String[1];
-		nombres[1]="figura1";
-		f1 = new Figura("SSSBBBDDDBBBIII","figura1");
+		String [] nombres = {"figura1","figura2"};
+		f1 = new Figura("SS","figura1");
 		g1.guardar(f1);
-		f2 = new Figura("SSSBBBDDDBBBIII","figura2");
-		assertNotNull(g1.recuperarIguales(f2));*/
-		fail("Nada");
+		assertNotNull(g1.recuperarLista(nombres));
 	}
 
 	@Test
