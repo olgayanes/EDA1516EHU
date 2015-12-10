@@ -1,4 +1,4 @@
-mport static org.junit.Assert.*;
+import static org.junit.Assert.*;
 
 import java.util.Hashtable;
 
