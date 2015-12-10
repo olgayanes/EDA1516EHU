@@ -385,7 +385,7 @@ public class Figura {
 				}
 				this.girarDerecha();
 			}
-		if(this.getTrazos().size()>f.getTrazos().size()){
+		if(this.getTrazos().size()== f.getTrazos().size()){
 			return true;	
 			}
 			}

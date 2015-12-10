@@ -181,10 +181,10 @@ public class FiguraTest {
 
 	@Test
 	public void testEsSemejante() {
-		/*f5.girarDerecha();
+		f5.girarDerecha();
 		assertTrue(f5.esSemejante(f6));
-		assertFalse(f1.esSemejante(f2));*/
-		fail("Nada");
+		assertFalse(f1.esSemejante(f2));
+		
 	}
 
 	@Test
