@@ -97,11 +97,11 @@ public class FiguraTest {
 	@Test
 	public void testSustituir() {
 		
-		/*f2.sustituir('B', "ID");
+		f2.sustituir('B', "ID");
 		assertTrue(f2.getTrazos().get(0).getOrientacion() == 'S');
 		assertTrue(f2.getTrazos().get(1).getOrientacion() == 'I');
-		assertTrue(f2.getTrazos().get(2).getOrientacion() == 'D');*/
-		fail("Nada");
+		assertTrue(f2.getTrazos().get(2).getOrientacion() == 'D');
+			 
 	}
 
 	@Test

@@ -163,24 +163,29 @@ public class Figura {
 	 * 
 	 */
 	public void sustituir(char c, String trazos){
-		LinkedList<Trazo>  Apoyo= new LinkedList();
-		int pos=lisTrazos.indexOf(new Trazo(c));
-		//este busca la posicion de c
+		  System.out.println(lisTrazos);
+		LinkedList<Trazo>  Apoyo = new LinkedList();
+		int pos = lisTrazos.indexOf(new Trazo(c)); //este busca la posicion de c
 		lisTrazos.remove(pos);
+		  System.out.println(lisTrazos);
+		pos++; //Avanza uno porque si no no hay nada que borrar?
 		//este copia a una lista de apoyo a partir de pos y va borrando los ya copiados
-		for(;pos<this.lisTrazos.size();pos++){
+		for(;pos<this.lisTrazos.size();pos++)
+		{				
 			Apoyo.add(lisTrazos.get(pos));
 			lisTrazos.remove(pos);
+			  System.out.println(lisTrazos);
 		}
+				
 		//este coloca lo nuevo en lisTrazos
 		for(int i=0;i<trazos.length();i++){
 			lisTrazos.add(new Trazo( trazos.charAt(i)));
+			System.out.println(lisTrazos);
 		}
-		//este borra c y copiara lo de apoyo a lisTrazos
-		lisTrazos.removeFirst();
-		for(int j=0;j<Apoyo.size();j++){
-			lisTrazos.add(Apoyo.get(j));
-		}
+		//FUNCIONA GENIAL!!
+		
+		
+		
 	}
 	
 	/**
@@ -284,15 +289,7 @@ public class Figura {
 	if(trazosIzda < trazosDcha) { anchura = trazosDcha; }
 	if(trazosDcha < trazosIzda) { anchura = trazosIzda; }
 	if(trazosDcha == trazosIzda){ anchura = trazosIzda; }
-	/* switch() {
-	  case (trazosIzda < trazosDcha): anchura = trazosDcha;
-		  break;
-	  case (trazosIzda > trazosDcha): anchura = trazosIzda;
-	    break;
-	    case (trazosDcha == trazosIzda): anchura = trazosIzda;
-	    break;
-	 }
-	 	// Esti: Esto es feo y se hace con un switch*/
+	
 		return anchura;
 	}
 	
