@@ -284,7 +284,15 @@ public class Figura {
 	if(trazosIzda < trazosDcha) { anchura = trazosDcha; }
 	if(trazosDcha < trazosIzda) { anchura = trazosIzda; }
 	if(trazosDcha == trazosIzda){ anchura = trazosIzda; }
-	// Esti: Esto es feo y se hace con un switch
+	/* switch() {
+	  case (trazosIzda < trazosDcha): anchura = trazosDcha;
+		  break;
+	  case (trazosIzda > trazosDcha): anchura = trazosIzda;
+	    break;
+	    case (trazosDcha == trazosIzda): anchura = trazosIzda;
+	    break;
+	 }
+	 	// Esti: Esto es feo y se hace con un switch*/
 		return anchura;
 	}
 	
