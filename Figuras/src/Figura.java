@@ -115,7 +115,7 @@ public class Figura {
 	 * 
 	 */
 	public void insertar(int pos, Figura f){
-		 LinkedList<Trazo> Apoyo = new LinkedList();
+		 LinkedList<Trazo> Apoyo = new LinkedList<Trazo>();
 		 Apoyo.add(lisTrazos.get(pos));
 			lisTrazos.remove(pos);
 		 //este copia a una lista de apoyo a partir de pos y va borrando los ya copiados
@@ -164,7 +164,7 @@ public class Figura {
 	 */
 	public void sustituir(char c, String trazos){
 		  System.out.println(lisTrazos);
-		LinkedList<Trazo>  Apoyo = new LinkedList();
+		LinkedList<Trazo>  Apoyo = new LinkedList<Trazo>();
 		int pos = lisTrazos.indexOf(new Trazo(c)); //este busca la posicion de c
 		lisTrazos.remove(pos);
 		  System.out.println(lisTrazos);
