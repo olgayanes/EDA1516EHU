@@ -1,8 +1,7 @@
-
 import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.List;
 import java.util.LinkedList;
+import java.util.List;
 
 public class GestorFiguras {
 	Hashtable<String,Figura> Figuras;
@@ -38,7 +37,7 @@ public class GestorFiguras {
 	 * @param figura, una figura 
 	 */
 	public void cambiar(Figura figura){
-		Figuras.put(figura.getNombre(), figura);	
+		Figuras.put(figura.getNombre(), figura);		
 	}
 	
 	/**
@@ -76,7 +75,7 @@ public class GestorFiguras {
 	 * @return una lista de figuras
 	 */
 	public List<Figura> recuperarIguales (Figura figura){
-		List <Figura> coincidencias = null;
+		List <Figura> coincidencias = new LinkedList<Figura>();
 		Iterator<Figura>iterador=Figuras.values().iterator();
 		while(iterador.hasNext()==true){
 			if(iterador.next().equals(figura)==true){
@@ -94,7 +93,7 @@ public class GestorFiguras {
 	 * @return una lista de figuras
 	 */
 	public List<Figura> recuperarSemejantes(Figura figura){
-		List <Figura> coincidencias = null;
+		List <Figura> coincidencias = new LinkedList<Figura>();
 		Iterator<Figura>iterador=Figuras.values().iterator();
 		while(iterador.hasNext()==true){
 			if(iterador.next().esSemejante(figura)==true){
