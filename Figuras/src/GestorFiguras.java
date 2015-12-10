@@ -37,14 +37,7 @@ public class GestorFiguras {
 	 * @param figura, una figura 
 	 */
 	public void cambiar(Figura figura){
-		Iterator<Figura>iterador=Figuras.values().iterator();
-		while(iterador.hasNext()==true){
-			if(iterador.next().getNombre()==figura.getNombre()){
-				iterador.next().getTrazos().clear();
-				iterador.next().getTrazos().addAll(figura.getTrazos());
-			}
-		}
-			
+		Figuras.put(figura.getNombre(), figura);	
 	}
 	
 	/**

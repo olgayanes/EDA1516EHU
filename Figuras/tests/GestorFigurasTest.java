@@ -45,12 +45,12 @@ public class GestorFigurasTest {
 
 	@Test
 	public void testCambiar() {
-	/*f1 = new Figura("SSSBBBDDDBBBIII","figura1");
-	f2 = new Figura("S","figura1");
-	g1.guardar(f1);
-	g1.cambiar(f2);
-		assertTrue(g1.Figuras.containsValue("S"));*/
-		fail("Nada");
+		f1 = new Figura("SS","figura1");
+		f2 = new Figura("S","figura1");
+		g1.guardar(f1);
+		g1.cambiar(f2);
+			assertTrue(f2.equals(g1.recuperar("figura1")));
+			assertFalse(f1.equals(g1.recuperar("figura1")));
 		
 	}
 
