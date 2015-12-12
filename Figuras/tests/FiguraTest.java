@@ -15,6 +15,7 @@ public class FiguraTest {
 	Figura f9;
 	Figura f10;
 	Figura f11;
+	Figura f12;
 	
 	@Before
 	public void setUp() throws Exception {

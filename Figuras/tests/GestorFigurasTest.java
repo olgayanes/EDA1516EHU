@@ -58,27 +58,30 @@ public class GestorFigurasTest {
 
 	@Test
 	public void testRecuperarLista() {
-		String [] nombres = {"figura1","figura2"};
+		String [] nombres = {"figura1"};
 		f1 = new Figura("SS","figura1");
+		f2 = new Figura("II","figura2");
 		g1.guardar(f1);
+		g1.guardar(f2);
 		assertNotNull(g1.recuperarLista(nombres));
 	}
 
 	@Test
 	public void testRecuperarIguales() {
 		f1 = new Figura("SS","figura1");
+		f3 = new Figura("II","figura3");
 		g1.guardar(f1);
+		g1.guardar(f3);
 		f2 = new Figura("SS","figura2");
 		assertNotNull(g1.recuperarIguales(f2));
-
 	}
 
 	@Test
 	public void testRecuperarSemejantes() {
-		String [] nombres = new String[1];
-		nombres[0]="figura1";
 		f1 = new Figura("SSSSBBBBDDDDBBBBIIII","figura1");
+		f3 = new Figura("SS","figura3");
 		g1.guardar(f1);
+		g1.guardar(f3);
 		f2 = new Figura("SSBBDDBBII","figura2");
 		assertNotNull(g1.recuperarSemejantes(f2));
 	}
