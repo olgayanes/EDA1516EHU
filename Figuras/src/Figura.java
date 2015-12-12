@@ -319,12 +319,12 @@ public class Figura {
 			if(this.longitud()!=f.longitud()) {return false;}
 			else {
 				for(int i=0;i<this.getTrazos().size();i++){
-					if(this.lisTrazos.get(i)!=f.lisTrazos.get(i)){
+					if(this.lisTrazos.get(i).equals(f.lisTrazos.get(i))==false){
 						return false;
 					}
 				}
-			}
-			return true;	
+				return true;	
+			}	
 		}
 		return false;
 	}
@@ -341,27 +341,15 @@ public class Figura {
 	 * 
 	 */
 	public boolean esHomotetica(Figura f){
-		if(this.getTrazos().size()>f.getTrazos().size()){
-			f.homotecia2();
-			if(this.equals(f)){
-				return true;
-			}
-		}
-		if(this.getTrazos().size()<f.getTrazos().size()){
-			this.homotecia2();
-			if(this.equals(f)){
-				return true;
-			}
-		}
-		return false;
 		
-		/*if(f.longitud() != this.longitud()&& f.longitud() < this.longitud() ){
+		if(f.longitud() != this.longitud()&& f.longitud() < this.longitud() ){
 			while(f.longitud() < this.longitud())f.homotecia2();
 		}
 		if(f.longitud() != this.longitud()&& f.longitud() > this.longitud() ){
 			while(f.longitud() > this.longitud())this.homotecia2();
 		}
-		return this.equals(f);*/ 
+		
+		return this.equals(f); 
 	}
 	
 	/**

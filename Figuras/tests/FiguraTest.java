@@ -13,6 +13,8 @@ public class FiguraTest {
 	Figura f7;
 	Figura f8;
 	Figura f9;
+	Figura f10;
+	Figura f11;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -25,6 +27,9 @@ public class FiguraTest {
 		f7 = new Figura("BBBSSSIIISSSDDD","figura7");
 		f8 = new Figura("DDDIIBS");
 		f9 = new Figura("IIIISSDD");
+		f10 = new Figura("II");
+		f11 = new Figura("II");
+		
 	}
 	
 	@Test
@@ -163,6 +168,7 @@ public class FiguraTest {
 	@Test
 	public void testEqualsObject() {
 		assertTrue(f1.equals(f1));
+		assertTrue(f10.equals(f11));
 		assertFalse(f1.equals(f2));
 		assertFalse(f2.equals(f3));
 		assertFalse(f4.equals('a'));
@@ -170,6 +176,7 @@ public class FiguraTest {
 
 	@Test
 	public void testEsHomotetica() {
+		assertTrue(f10.esHomotetica(f11));
 		assertTrue(f1.esHomotetica(f1));
 		assertTrue(f5.esHomotetica(f6));
 		assertTrue(f6.esHomotetica(f5));
