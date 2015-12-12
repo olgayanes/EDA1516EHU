@@ -101,11 +101,11 @@ public class FiguraTest {
 		assertTrue(f2.getTrazos().get(0).getOrientacion() == 'S');
 		assertTrue(f2.getTrazos().get(1).getOrientacion() == 'I');
 		assertTrue(f2.getTrazos().get(2).getOrientacion() == 'D');
-			 
 	}
 
 	@Test
 	public void testGirarDerecha() {
+		
 		Figura f = new Figura("SDBI");
 		f.girarDerecha();
 		assertTrue(f.getTrazos().get(0).getOrientacion() == 'D');
@@ -170,13 +170,12 @@ public class FiguraTest {
 
 	@Test
 	public void testEsHomotetica() {
-		/*assertTrue(f1.esHomotetica(f1));
+		assertTrue(f1.esHomotetica(f1));
 		assertTrue(f5.esHomotetica(f6));
 		assertTrue(f6.esHomotetica(f5));
 		assertFalse(f1.esHomotetica(f2));
 		assertFalse(f2.esHomotetica(f1));
-		assertFalse(f5.esHomotetica(f3));*/
-		fail("Nada");
+		assertFalse(f5.esHomotetica(f3));
 	}
 
 	@Test
@@ -184,7 +183,6 @@ public class FiguraTest {
 		f5.girarDerecha();
 		assertTrue(f5.esSemejante(f6));
 		assertFalse(f1.esSemejante(f2));
-		
 	}
 
 	@Test
