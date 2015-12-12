@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -85,6 +86,15 @@ public class GestorFiguras {
 			
 		
 		return coincidencias;
+		
+		/*Hashtable<String,Figura> listaFiguras = new Hashtable<String,Figura>();
+		Iterator<Figura> iterator = Figuras.values().iterator();
+		while(iterator.hasNext()){
+			Figura f = iterator.next();
+			if(f.equals(figura))listaFiguras.put(f.getNombre(), f);
+		}
+		ArrayList<Figura> a = new ArrayList<Figura>(listaFiguras.values());
+		return (List)a;*/
 	}
 
 	/**
@@ -101,6 +111,16 @@ public class GestorFiguras {
 			}
 		}
 	return coincidencias;
+	
+		/*Hashtable<String,Figura> listaFiguras = new Hashtable<String,Figura>();
+		Iterator<Figura> iterator = Figuras.values().iterator();
+		while(iterator.hasNext()){
+			Figura f = iterator.next();
+			if(f.esSemejante(figura))listaFiguras.put(f.getNombre(), f);
+		}
+		ArrayList<Figura> a = new ArrayList<Figura>(listaFiguras.values());
+		return (List)a;*/
 	}
-
+		
+		
 }
