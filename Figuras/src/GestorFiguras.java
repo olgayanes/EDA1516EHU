@@ -78,23 +78,15 @@ public class GestorFiguras {
 	public List<Figura> recuperarIguales (Figura figura){
 		List <Figura> coincidencias = new LinkedList<Figura>();
 		Iterator<Figura>iterador=Figuras.values().iterator();
-		while(iterador.hasNext()==true){
-			if(iterador.next().equals(figura)==true){
-				coincidencias.add(iterador.next());
+		while(iterador.hasNext()){
+			Figura f = iterador.next();
+			if(f.equals(figura)){
+				coincidencias.add(f);
 			}
-		}
-			
+
+		}			
 		
 		return coincidencias;
-		
-		/*Hashtable<String,Figura> listaFiguras = new Hashtable<String,Figura>();
-		Iterator<Figura> iterator = Figuras.values().iterator();
-		while(iterator.hasNext()){
-			Figura f = iterator.next();
-			if(f.equals(figura))listaFiguras.put(f.getNombre(), f);
-		}
-		ArrayList<Figura> a = new ArrayList<Figura>(listaFiguras.values());
-		return (List)a;*/
 	}
 
 	/**
@@ -105,21 +97,14 @@ public class GestorFiguras {
 	public List<Figura> recuperarSemejantes(Figura figura){
 		List <Figura> coincidencias = new LinkedList<Figura>();
 		Iterator<Figura>iterador=Figuras.values().iterator();
-		while(iterador.hasNext()==true){
-			if(iterador.next().esSemejante(figura)==true){
-				coincidencias.add(iterador.next());
+		while(iterador.hasNext()){
+			Figura f = iterador.next();
+			if(f.esSemejante(figura)){
+				coincidencias.add(f);
 			}
 		}
 	return coincidencias;
 	
-		/*Hashtable<String,Figura> listaFiguras = new Hashtable<String,Figura>();
-		Iterator<Figura> iterator = Figuras.values().iterator();
-		while(iterator.hasNext()){
-			Figura f = iterator.next();
-			if(f.esSemejante(figura))listaFiguras.put(f.getNombre(), f);
-		}
-		ArrayList<Figura> a = new ArrayList<Figura>(listaFiguras.values());
-		return (List)a;*/
 	}
 		
 		
