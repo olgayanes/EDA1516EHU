@@ -354,6 +354,14 @@ public class Figura {
 			}
 		}
 		return false;
+		
+		/*if(f.longitud() != this.longitud()&& f.longitud() < this.longitud() ){
+			while(f.longitud() < this.longitud())f.homotecia2();
+		}
+		if(f.longitud() != this.longitud()&& f.longitud() > this.longitud() ){
+			while(f.longitud() > this.longitud())this.homotecia2();
+		}
+		return this.equals(f);*/ 
 	}
 	
 	/**
