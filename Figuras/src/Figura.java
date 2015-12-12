@@ -257,7 +257,7 @@ public class Figura {
 	if(trazosAbajo < trazosArriba) { altura = trazosArriba; }
 	if(trazosArriba < trazosAbajo){ altura = trazosAbajo; }
 	if(trazosArriba == trazosAbajo ){ altura = trazosAbajo; }
-	// Esti: Esto es feo y se hace con un switch
+
 		return altura;
 	}
 	
@@ -337,7 +337,7 @@ public class Figura {
 	 * @param f, una figura
 	 * @return True si es homotetica y False, en caso contrario
 	 * 
-	 * Usa homotencia2 en la figura mas pequeña y luego las compara con equals
+	 * Usa homotecia2 en la figura mas pequeña y luego las compara con equals
 	 * 
 	 */
 	public boolean esHomotetica(Figura f){
